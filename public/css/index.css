@@ -3,6 +3,13 @@ html, body {font-size: 16px;}
 .wrapper {width: 100%; height: 100vh; background: url(../img/bg.jpg) no-repeat center; background-size: cover; background-attachment: fixed;}
 .wrap {max-width: 1320px; margin: 0 auto; width: calc(100% -32px);}
 
+.anibar {cursor: pointer; transition: all 0.25s;}
+.anibar::after {border-bottom: 2px solid #fff; display: block; content: ""; transform-origin: left; transform: scaleX(0); transition: all 0.25s;}
+.anibar:hover {color: greenyellow;}
+.anibar:hover::after {transform: scaleX(1); transform-origin: right;}
+
+
+/***************** .header-wrapper *******************/
 .header-wrapper {background-color: rgba(0,0,0,0.4);}
 .header {display: flex; justify-content: space-between; align-items: flex-end; color: #f8f8f8; padding: 1em;}
 .header > .logo-wrap {display: flex; align-items: center;} 
@@ -11,17 +18,23 @@ html, body {font-size: 16px;}
 .header .logo-text > div:first-child {color: cyan;} 
 .header .logo-text > div:last-child {padding-left: 0.5em;} 
 
-.header .navi-wrap {display: flex; align-items: center; justify-content: flex-end;} 
-.header .navi-wrap > .navi {padding: 0.25em 1em; font-size: 1.5em;}
+.header nav {font-size: 1.5em;}
+.header .navi-pc {display: flex; align-items: center; justify-content: flex-end;} 
+.header .navi-pc > .navi {padding: 0.25em 1em;}
+.header .navi-mobile {display: none;}
 
 @media screen and (max-width: 991px) {
 	
 }
 
 @media screen and (max-width: 767px) {
-
+	.header {align-items: center;}
+	.header > .logo-wrap > .logo {width: 60px;}
+	.header .logo-text > div {font-size: 2em;}
+	.header .navi-pc {display: none;}
+	.header .navi-mobile {display: block;}
 }
 
 @media screen and (max-width: 575px) {
-	
+	.header .logo-text > div {font-size: 1.75em;}
 }
