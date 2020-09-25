@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/base.css">
 	<style>
-		html, body {font-size: 32px;}
+		html, body {font-size: 16px;}
 		body div {border: 5px solid blue; margin: 16px; }
 		.px {width: 300px; font-size: 1rem}
 		.vw {width: 30vw; font-size: 0.5rem}
@@ -16,15 +16,17 @@
 		.rem {width: 10rem; font-size: 1rem}
 		.em {width: 10em; font-size: 1em}
 
-		.prd {font-size: 1rem;}
-		.prd > .title {font-size: 1.5em; line-height: 1em;}
+		.prd {font-size: 1.125rem;}
+		.prd > .title {font-size: 1.5em; padding: 0.5em;}
 		.prd > .price {font-size: 1.25em;}
 
 		@media screen and (max-width: 991px) {
 			html, body {font-size: 24px;}
+			.prd {font-size: 1rem;}
 		}
 		@media screen and (max-width: 768px) {
 			html, body {font-size: 16px;}
+			.prd {font-size: 0.75rem;}
 		}	
 		@media screen and (max-width: 576px) {
 			html, body {font-size: 12px;}
