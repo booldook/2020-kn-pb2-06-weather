@@ -27,6 +27,7 @@ function onGetCity(r) {
 		sendData.lat = v.lat;
 		sendData.lon = v.lon;
 		$.get(dailyURL, sendData, onGetDaily);
+		$("#city").append('<option value="'+v.id+'">'+v.name+'</option>');
 	});
 }
 function onGetDaily(r) {
@@ -54,11 +55,17 @@ function onGetPositon(r) {
 	sendData.lat = r.coords.latitude;
 	sendData.lon = r.coords.longitude;
 	$.get(dailyURL, sendData, onGetDailyPosition);
+	$.get(weeklyURL, sendData, onGetWeeklyPosition);
 }
 function onErrorPosition(e) {
 	console.log(e);
 }
 function onGetDailyPosition(r) {
+	console.log(r);
+	var dt = new Date(r.dt * 1000);
+	console.log(dt);
+}
+function onGetWeeklyPosition(r) {
 	console.log(r);
 }
 
