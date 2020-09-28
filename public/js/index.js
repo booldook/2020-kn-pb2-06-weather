@@ -32,7 +32,10 @@ function onGetCity(r) {
 function onGetDaily(r) {
 	console.log(r);
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
-	var html = '<div class="custom-window">';
+	var html;
+	if(r.id == 1835848 || r.id == 1841811) html = '<div class="custom-window lt">';
+	else if(r.id == 1841066 || r.id == 1843564) html = '<div class="custom-window rt">';
+	else html = '<div class="custom-window">';
 	html += '<img src="'+icon+'" style="width: 40px;">';
 	html += '<div>온도 '+r.main.temp+'℃<br>체감 '+r.main.feels_like+'℃</div>';
 	html += '<img src="../img/triangle.png" class="triangle">'
