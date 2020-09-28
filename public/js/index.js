@@ -12,7 +12,7 @@ var sendData = { units: 'metric', lang: 'kr', appid: appid }
 var container, options, map;
 container = document.getElementById('map');
 options = {
-	center: new kakao.maps.LatLng(35.823107, 128.118022),
+	center: new kakao.maps.LatLng(35.82, 127.44),
 	level: 13
 };
 map = new kakao.maps.Map(container, options);
@@ -22,7 +22,7 @@ map.setZoomable(false);
 
 $.get('../json/city.json', onGetCity);
 function onGetCity(r) {
-	console.log(r);
+	// console.log(r);
 	r.cities.forEach(function(v, i){
 		sendData.lat = v.lat;
 		sendData.lon = v.lon;
@@ -30,14 +30,14 @@ function onGetCity(r) {
 	});
 }
 function onGetDaily(r) {
-	console.log(r);
+	// console.log(r);
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
 	var html;
 	if(r.id == 1835848 || r.id == 1841811) html = '<div class="custom-window lt">';
 	else if(r.id == 1841066 || r.id == 1843564) html = '<div class="custom-window rt">';
 	else html = '<div class="custom-window">';
 	html += '<img src="'+icon+'" style="width: 40px;">';
-	html += '<div>온도 '+r.main.temp+'℃<br>체감 '+r.main.feels_like+'℃</div>';
+	html += '<div>온도 <b>'+r.main.temp+'</b>℃<br>체감 <b>'+r.main.feels_like+'</b>℃</div>';
 	html += '<img src="../img/triangle.png" class="triangle">'
 	html += '</div>';
 	var position = new kakao.maps.LatLng(r.coord.lat, r.coord.lon);
@@ -46,6 +46,20 @@ function onGetDaily(r) {
 			content : html
 	});
 	customWindow.setMap(map);
+}
+
+/************** 현재위치 날씨 정보 **************/
+navigator.geolocation.getCurrentPosition(onGetPositon, onErrorPosition);
+function onGetPositon(r) {
+	sendData.lat = r.coords.latitude;
+	sendData.lon = r.coords.longitude;
+	$.get(dailyURL, sendData, onGetDailyPosition);
+}
+function onErrorPosition(e) {
+	console.log(e);
+}
+function onGetDailyPosition(r) {
+	console.log(r);
 }
 
 
