@@ -24,9 +24,10 @@ function onKoreaWeather(r) {
 	// map.addOverlayMapTypeId(kakao.maps.MapTypeId.TERRAIN);
 
 	icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
-	html = '<div class="custom-window triangle">';
+	html = '<div class="custom-window">';
 	html += '<img src="'+icon+'" style="width: 40px;">';
 	html += '<div>온도 '+r.main.temp+'℃<br>체감 '+r.main.feels_like+'℃</div>';
+	html += '<img src="../img/triangle.png" class="triangle">'
 	html += '</div>';
 	position = new kakao.maps.LatLng(r.coord.lat, r.coord.lon);
 	customWindow = new kakao.maps.CustomOverlay({
