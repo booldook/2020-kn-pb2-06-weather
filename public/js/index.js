@@ -11,7 +11,7 @@ sendData.lon = 126.977829;
 $.get(dailyURL, sendData, onKoreaWeather);
 function onKoreaWeather(r) {
 	console.log(r);
-	var container, options, map, html, iwPosition, infoWindow, icon;
+	var container, options, map, html, position, customWindow, icon;
 	
 	container = document.getElementById('map');
 	options = {
@@ -21,19 +21,17 @@ function onKoreaWeather(r) {
 	map = new kakao.maps.Map(container, options);
 	map.setDraggable(false);
 	map.setZoomable(false);
-	map.addOverlayMapTypeId(kakao.maps.MapTypeId.TERRAIN);
+	// map.addOverlayMapTypeId(kakao.maps.MapTypeId.TERRAIN);
 
 	icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
-	html = '<div class="info-window">';
-	html += '<img src="'+icon+'" style="width: 40px;"> ';
-	html += r.main.temp+'도/체감 '+r.main.feels_like+'도';
+	html = '<div class="custom-window triangle">';
+	html += '<img src="'+icon+'" style="width: 40px;">';
+	html += '<div>온도 '+r.main.temp+'℃<br>체감 '+r.main.feels_like+'℃</div>';
 	html += '</div>';
-	iwPosition = new kakao.maps.LatLng(r.coord.lat, r.coord.lon);
-	infowindow = new kakao.maps.InfoWindow({
-			map: map,
-			position : iwPosition, 
+	position = new kakao.maps.LatLng(r.coord.lat, r.coord.lon);
+	customWindow = new kakao.maps.CustomOverlay({
+			position : position, 
 			content : html
 	});
-	$(".info-window").parent().prev().css("margin-top", "-3px");
-	$(".info-window").parent().parent().css({"border-radius": "5px", "background-color": "rgba(255,255,255,0.8)"});
+	customWindow.setMap(map);
 }

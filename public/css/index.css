@@ -8,6 +8,11 @@ html, body {font-size: 16px;}
 .anibar:hover {color: greenyellow;}
 .anibar:hover::after {transform: scaleX(1); transform-origin: right;}
 
+/*
+.triangle {position: relative;}
+.triangle::after {content: ""; display: block; position: absolute; bottom: -9px; left: calc(50% - 10px); width: 0; height: 0;  border-right: 10px solid transparent; border-left: 10px solid transparent; border-top: 10px solid #fff;}
+*/
+
 
 /***************** .header-wrapper *******************/
 .header-wrapper {background-color: rgba(0,0,0,0.4);}
@@ -29,8 +34,9 @@ html, body {font-size: 16px;}
 .main-wrapper #map {width: 100%; height: 100%;}
 .main-wrapper .loc-wrapper {flex: 38% 0 0; margin-left: 2%;}
 
-.map-info > :first-child {float: left; width: 40px;}
-.map-info > :last-child {float: right; width: 120px; padding-left: 8px;}
+.custom-window {display: flex; background-color: #fff; align-items: center; font-size: 12px; line-height: 1.1; border: 1px solid #999; border-radius: 6px; transform: translateY(-40px);}
+.custom-window > :first-child {flex: 40px 0 0;}
+.custom-window > :last-child {padding: 0 8px;}
 
 
 
