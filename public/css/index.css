@@ -34,7 +34,7 @@ html, body {font-size: 16px;}
 .main-wrapper #map {width: 100%; height: 100%;}
 .main-wrapper .loc-wrapper {flex: 38% 0 0; margin-left: 2%;}
 
-.custom-window {display: flex; background-color: #fff; align-items: center; font-size: 12px; line-height: 1.1; border: 1px solid #999; border-radius: 6px; transform: translate(0, -36px); position: relative;}
+.custom-window {display: flex; background-color: yellowgreen; align-items: center; color: #111; font-size: 12px; line-height: 1.1; border: 1px solid #999; border-radius: 6px; transform: translate(0, -36px); position: relative;}
 .custom-window.lt {transform: translate(40%, -36px);}
 .custom-window.rt {transform: translate(-40%, -36px);}
 .custom-window > :nth-child(1) {flex: 40px 0 0;}
