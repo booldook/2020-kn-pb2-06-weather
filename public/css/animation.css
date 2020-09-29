@@ -1,6 +1,6 @@
 .wrapper {padding:3rem; display: flex; justify-content: space-between; max-width: 1600px; margin: auto;}
 .wrapper .box {width: 200px; height: 200px;}
-.wrapper .box1 {background-color: red; animation-name: box1; animation-play-state: paused; animation-duration: 1s; animation-iteration-count: infinite; animation-timing-function: linear; transform-origin: center; }
+.wrapper .box1 {background-color: red; /* animation-name: box1; animation-play-state: paused; */ animation-duration: 1s; animation-iteration-count: infinite; animation-timing-function: linear; transform-origin: center; }
 .wrapper .box2 {background-color: green;}
 .wrapper .box3 {background-color: blue;}
 
