@@ -1,5 +1,4 @@
 /******************* 전역설정 ********************/
-var kakaoKey = '644d617a85cb7f28982d642138d22c33';
 var appid = '02efdd64bdc14b279bc91d9247db4722';
 var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
 var weeklyURL = 'https://api.openweathermap.org/data/2.5/forecast';
@@ -22,7 +21,6 @@ map.setZoomable(false);
 
 $.get('../json/city.json', onGetCity);
 function onGetCity(r) {
-	// console.log(r);
 	r.cities.forEach(function(v, i){
 		sendData.lat = v.lat;
 		sendData.lon = v.lon;
@@ -31,7 +29,7 @@ function onGetCity(r) {
 	});
 }
 function onGetDaily(r) {
-	// console.log(r);
+	console.log(r);
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
 	var html;
 	if(r.id == 1835848 || r.id == 1841811) html = '<div class="custom-window lt">';
@@ -52,20 +50,21 @@ function onGetDaily(r) {
 /************** 현재위치 날씨 정보 **************/
 navigator.geolocation.getCurrentPosition(onGetPositon, onErrorPosition);
 function onGetPositon(r) {
+	console.log(r);
 	sendData.lat = r.coords.latitude;
 	sendData.lon = r.coords.longitude;
-	$.get(dailyURL, sendData, onGetDailyPosition);
-	$.get(weeklyURL, sendData, onGetWeeklyPosition);
+	$.get(dailyURL, sendData, onGetDailyWeather);
+	$.get(weeklyURL, sendData, onGetWeeklyWeather);
 }
 function onErrorPosition(e) {
 	console.log(e);
 }
-function onGetDailyPosition(r) {
+function onGetDailyWeather(r) {
 	console.log(r);
 	var dt = new Date(r.dt * 1000);
 	console.log(dt);
 }
-function onGetWeeklyPosition(r) {
+function onGetWeeklyWeather(r) {
 	console.log(r);
 }
 
