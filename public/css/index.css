@@ -15,7 +15,7 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 
 
 /***************** .header-wrapper *******************/
-.header-wrapper {display: flex; justify-content: center; align-items: center; color: #f8f8f8; padding: 1rem 0;}
+.header-wrapper {display: flex; justify-content: center; align-items: center; color: #f8f8f8; padding: 1rem 0; user-select: none;}
 .header-wrapper > .logo-wrap {display: flex; align-items: center;} 
 .header-wrapper > .logo-wrap > .logo {width: 120px; margin-right: 1em;} 
 .header-wrapper .logo-text > div {line-height: 0.8; letter-spacing: -0.125em; font-size: 3.5em;} 
