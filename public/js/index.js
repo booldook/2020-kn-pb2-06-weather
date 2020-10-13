@@ -22,6 +22,7 @@ map.setZoomable(false);
 $.get('../json/city.json', onGetCity);
 function onGetCity(r) {
 	r.cities.forEach(function(v, i){
+		sendData.id = null;
 		sendData.lat = v.lat;
 		sendData.lon = v.lon;
 		$.get(dailyURL, sendData, onGetDaily);
@@ -42,14 +43,17 @@ function onGetDaily(r) {
 	var position = new kakao.maps.LatLng(r.coord.lat, r.coord.lon);
 	var customWindow = new kakao.maps.CustomOverlay({
 			position : position, 
-			content : html
+			content : html,
+			clickable: true,
 	});
 	customWindow.setMap(map);
+	console.log(customWindow.a);
 }
 
 /************** 현재위치 날씨 정보 **************/
 navigator.geolocation.getCurrentPosition(onGetPositon, onErrorPosition);
 function onGetPositon(r) {
+	sendData.id = null;
 	sendData.lat = r.coords.latitude;
 	sendData.lon = r.coords.longitude;
 	$.get(dailyURL, sendData, onGetDailyWeather);
@@ -58,8 +62,22 @@ function onGetPositon(r) {
 function onErrorPosition(e) {
 	console.log(e);
 }
+
+/************** 도시정보 날씨 정보 **************/
+$("#city").change(onGetCityWeather);
+function onGetCityWeather() {
+	sendData.lat = null;
+	sendData.lon = null;
+	sendData.id = $(this).val();
+	$.get(dailyURL, sendData, onGetDailyWeather);
+	$.get(weeklyURL, sendData, onGetWeeklyWeather);
+}
+
+
+
+/************** 현재날씨 콜백 **************/
 function onGetDailyWeather(r) {
-	console.log(r);
+	// console.log(r);
 	// YY/YYYY - M/MM - D/DD - H/HH(24시간제)/h/hh(12시간제) - m/mm
 	var dtDate = moment(r.dt * 1000).format('M월 D일');
 	var dtTime = moment(r.dt * 1000).format('H시 m분');
@@ -68,11 +86,39 @@ function onGetDailyWeather(r) {
 	var locTitle = r.name + ', ' + r.sys.country;
 	$(".loc-wrapper .title-loc").text(locTitle);
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
-	$(".cont-wrapper .icon-wrap img").attr("src", icon);
-
+	$(".daily-weather .icon-wrap img").attr("src", icon);
+	var temp = r.main.temp;
+	$(".daily-weather .temp").text(temp);
+	var tempFeel = r.main.feels_like;
+	$(".daily-weather .temp-feel").text(tempFeel);
+	var descTitle = r.weather[0].main;
+	$(".daily-weather .desc-title").text(descTitle);
+	var desc = r.weather[0].description;
+	$(".daily-weather .desc").text(desc);
+	var humidity = r.main.humidity;
+	$(".daily-weather .humidity").text(humidity);
+	var pressure = r.main.pressure;
+	$(".daily-weather .pressure").text(pressure);
+	var sunrise = moment(r.sys.sunrise * 1000).format("HH시 mm분 ss초");
+	$(".daily-weather .sunrise").text(sunrise);
+	var sunset = moment(r.sys.sunset * 1000).format("HH시 mm분 ss초");
+	$(".daily-weather .sunset").text(sunset);
+	var windSpeed = r.wind.speed;
+	$(".daily-weather .wind-speed").text(windSpeed);
+	var deg = r.wind.deg;
+	var windTxt = '';
+	if(deg > 345 || deg <= 15) windTxt = '북풍';
+	if(deg > 15 || deg <= 75) windTxt = '북동풍';
+	if(deg > 75 || deg <= 105) windTxt = '동풍';
+	if(deg > 105 || deg <= 165) windTxt = '남동풍';
+	if(deg > 165 || deg <= 195) windTxt = '남풍';
+	if(deg > 195 || deg <= 255) windTxt = '남서풍';
+	if(deg > 255 || deg <= 285) windTxt = '서풍';
+	if(deg > 285 || deg <= 345) windTxt = '북서풍';
+	$(".daily-weather .wind").text(windTxt);
 }
 function onGetWeeklyWeather(r) {
-	console.log(r);
+	// console.log(r);
 }
 
 
