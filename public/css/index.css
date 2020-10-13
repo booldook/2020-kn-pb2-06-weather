@@ -27,7 +27,8 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .main-wrapper .map-wrapper {flex: 400px 0 0; height: 600px;}
 .main-wrapper #map {width: 100%; height: calc(100% - 54px);}
 
-.custom-window {display: flex; background-color: yellowgreen; align-items: center; color: #111; font-size: 0.75rem; line-height: 1.1; border: 1px solid #999; border-radius: 6px; transform: translate(0, -36px); position: relative;}
+.custom-window {display: flex; background-color: yellowgreen; align-items: center; color: #111; font-size: 0.75rem; line-height: 1.1; border: 1px solid #999; border-radius: 6px; transform: translate(0, -36px); position: relative; cursor: pointer;}
+.custom-window.active {background-color: #ffd417;}
 .custom-window.lt {transform: translate(40%, -36px);}
 .custom-window.rt {transform: translate(-40%, -36px);}
 .custom-window > :nth-child(1) {flex: 40px 0 0;}
