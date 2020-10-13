@@ -3,7 +3,6 @@ var appid = '02efdd64bdc14b279bc91d9247db4722';
 var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
 var weeklyURL = 'https://api.openweathermap.org/data/2.5/forecast';
 var sendData = { units: 'metric', lang: 'kr', appid: appid }
-var city;
 
 /************** 카카오 지도 연동 **************/
 // 1. 지도를 화면에 생성한다.
@@ -22,21 +21,20 @@ map.setZoomable(false);
 
 $.get('../json/city.json', onGetCity);
 function onGetCity(r) {
-	city = r.cities;
 	r.cities.forEach(function(v, i){
 		sendData.id = null;
 		sendData.lat = v.lat;
 		sendData.lon = v.lon;
-		$.get(dailyURL, sendData, onGetDaily);
+		$.get(dailyURL, sendData, function(res){
+			onGetDaily(res, v.class);
+		});
 		$("#city").append('<option value="'+v.id+'">'+v.name+'</option>');
 	});
 }
-function onGetDaily(r) {
-	console.log(r);
+function onGetDaily(r, cls) {
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
-	var cls = city.filter(function(v) { return v.id == r.id; });
 	var html;
-	html = '<div id="c'+r.id+'" class="custom-window '+cls[0].class+'" onclick="onCustomClick('+r.id+');">';
+	html = '<div id="c'+r.id+'" class="custom-window '+cls+'" onclick="onCustomClick('+r.id+');">';
 	html += '<img src="'+icon+'" style="width: 40px;">';
 	html += '<div>온도 <b>'+r.main.temp+'</b>℃<br>체감 <b>'+r.main.feels_like+'</b>℃</div>';
 	html += '<img src="../img/triangle.png" class="triangle">'
