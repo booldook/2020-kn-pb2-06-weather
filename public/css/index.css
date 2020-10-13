@@ -43,9 +43,17 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .loc-wrapper .title small {color: #f1d4a3;}
 .loc-wrapper .title small > :last-child {font-size: 0.875em;}
 
-.cont-wrapper {margin: 2rem 0; display: flex;}
-.cont-wrapper > .icon-wrap {flex: 30% 0 0; display: flex; align-items: center; justify-content: center;}
-.cont-wrapper > .cont-wrap {flex: 70% 0 0;}
+.cont-wrapper {margin: 2rem 0;}
+.daily-weather {display: flex; flex-wrap: wrap;}
+.daily-weather > .icon-wrap {flex: 30% 0 0; display: flex; align-items: center; justify-content: center;}
+.daily-weather > .cont-wrap {flex: 70% 0 0;}
+.daily-weather .temp-wrap {font-size: 2rem; padding: 0.75rem 0;}
+.daily-weather .temp-wrap .temp {color: #f7e8cd;}
+.daily-weather .temp-wrap small {color: #ccc;}
+.daily-weather .desc-wrap {font-size: 1.75rem;}
+.daily-weather .press-wrap {font-size: 1.25rem; padding: 0.5rem 0;}
+.daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #ccc;}
+
 
 
 /***************** 반응형 *******************/
