@@ -39,20 +39,20 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 #city {margin-bottom: 1rem;}
 
 .main-wrapper .loc-wrapper {flex: 100% 0 1; margin-left: 2%; background-color: rgba(0,0,0,0.4); color: #fff; padding: 2rem;}
-.loc-wrapper .title {font-size: 2em;}
+.loc-wrapper .title {font-size: 2em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.75rem;}
 .loc-wrapper .title small {color: #f1d4a3;}
 .loc-wrapper .title small > :last-child {font-size: 0.875em;}
 
-.cont-wrapper {margin: 2rem 0;}
+.cont-wrapper {padding: 1rem 0;}
 .daily-weather {display: flex; flex-wrap: wrap;}
 .daily-weather > .icon-wrap {flex: 30% 0 0; display: flex; align-items: center; justify-content: center;}
 .daily-weather > .cont-wrap {flex: 70% 0 0;}
 .daily-weather .temp-wrap {font-size: 2rem; padding: 0.75rem 0;}
-.daily-weather .temp-wrap .temp {color: #f7e8cd;}
-.daily-weather .temp-wrap small {color: #ccc;}
+.daily-weather .temp-wrap .temp {color: #f1d4a3;}
+.daily-weather .temp-wrap small {color: #efefef;}
 .daily-weather .desc-wrap {font-size: 1.75rem;}
 .daily-weather .press-wrap {font-size: 1.25rem; padding: 0.5rem 0;}
-.daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #ccc;}
+.daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.3);}
 
 
 
