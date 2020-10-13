@@ -41,6 +41,11 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .main-wrapper .loc-wrapper {flex: 100% 0 1; margin-left: 2%; background-color: rgba(0,0,0,0.4); color: #fff; padding: 2rem;}
 .loc-wrapper .title {font-size: 2em;}
 .loc-wrapper .title small {color: #f1d4a3;}
+.loc-wrapper .title small > :last-child {font-size: 0.875em;}
+
+.cont-wrapper {margin: 2rem 0; display: flex;}
+.cont-wrapper > .icon-wrap {flex: 30% 0 0; display: flex; align-items: center; justify-content: center;}
+.cont-wrapper > .cont-wrap {flex: 70% 0 0;}
 
 
 /***************** 반응형 *******************/
