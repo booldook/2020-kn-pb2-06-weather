@@ -61,6 +61,11 @@ function onErrorPosition(e) {
 	console.log(e);
 }
 
+/************** 페이지 새로고침 **************/
+$(".bt-position").click(function(){
+	location.reload();
+});
+
 /************** 도시정보 날씨 정보 **************/
 $("#city").change(onGetCityWeather);
 function onGetCityWeather() {
@@ -87,10 +92,10 @@ function onGetDailyWeather(r) {
 	// YY/YYYY - M/MM - D/DD - H/HH(24시간제)/h/hh(12시간제) - m/mm
 	var dtDate = moment(r.dt * 1000).format('M월 D일');
 	var dtTime = moment(r.dt * 1000).format('H시 m분');
-	$(".loc-wrapper .title-date").text(dtDate);
-	$(".loc-wrapper .title-time").text(dtTime);
+	$(".weather-wrapper .title-date").text(dtDate);
+	$(".weather-wrapper .title-time").text(dtTime);
 	var locTitle = r.name + ', ' + r.sys.country;
-	$(".loc-wrapper .title-loc").text(locTitle);
+	$(".weather-wrapper .title-loc").text(locTitle);
 	var icon = 'https://openweathermap.org/img/wn/'+r.weather[0].icon+'@2x.png';
 	$(".daily-weather .icon-wrap img").attr("src", icon);
 	var temp = r.main.temp;

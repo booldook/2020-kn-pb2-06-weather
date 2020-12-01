@@ -22,8 +22,11 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .header-wrapper .logo-text > div:first-child {color: cyan;} 
 .header-wrapper .logo-text > div:last-child {padding-left: 0.5em;} 
 
+.bt-position {padding: 8px 12px; background-color: #226922; color: #f8f8f8; transition: all 0.5s; user-select: none; cursor: pointer;}
+.bt-position:hover {background-color: seashell; color: #113811;}
+
 /***************** .main-wrapper *******************/
-.main-wrapper .now-wrapper {display: flex; margin: 2rem 0;}
+.main-wrapper .now-wrapper {display: flex; flex-wrap: wrap; margin: 2rem 0;}
 .main-wrapper .map-wrapper {flex: 400px 0 0; height: 600px;}
 .main-wrapper #map {width: 100%; height: calc(100% - 54px);}
 
@@ -39,10 +42,10 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 
 #city {margin-bottom: 1rem;}
 
-.main-wrapper .loc-wrapper {flex: 100% 0 1; margin-left: 2%; background-color: rgba(0,0,0,0.4); color: #fff; padding: 2rem;}
-.loc-wrapper .title {font-size: 2em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.75rem;}
-.loc-wrapper .title small {color: #f1d4a3;}
-.loc-wrapper .title small > :last-child {font-size: 0.875em;}
+.main-wrapper .weather-wrapper {flex: calc(100% - 420px) 0 0; margin-left: 20px; background-color: rgba(0,0,0,0.4); color: #fff; padding: 2rem;}
+.weather-wrapper .title {font-size: 2em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.75rem;}
+.weather-wrapper .title small {color: #f1d4a3;}
+.weather-wrapper .title small > :last-child {font-size: 0.875em;}
 
 .cont-wrapper {padding: 1rem 0;}
 .daily-weather {display: flex; flex-wrap: wrap;}
@@ -60,15 +63,15 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 
 /***************** 반응형 *******************/
 @media screen and (max-width: 991px) {
-	
+	.main-wrapper .map-wrapper {flex: 100% 0 0; height: 60px;}
+	.main-wrapper .weather-wrapper {flex: 100% 0 0; margin-left: 0;}
+	#map {display: none;}
 }
 
 @media screen and (max-width: 767px) {
 	.header {align-items: center;}
 	.header > .logo-wrap > .logo {width: 60px;}
 	.header .logo-text > div {font-size: 2em;}
-	.header .navi-pc {display: none;}
-	.header .navi-mobile {display: block;}
 }
 
 @media screen and (max-width: 575px) {
