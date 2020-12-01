@@ -139,6 +139,7 @@ function onGetDailyWeather(r) {
 function onGetWeeklyWeather(r) {
 	console.log(r);
 	var html = '', v = null;
+	$(".weekly-weather .slide-wrapper").empty();
 	for(var i in r.list) {
 		v = r.list[i];
 		html 	= '<div class="slide swiper-slide">';
