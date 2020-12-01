@@ -72,8 +72,15 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 	.header {align-items: center;}
 	.header > .logo-wrap > .logo {width: 60px;}
 	.header .logo-text > div {font-size: 2em;}
+	.daily-weather > .icon-wrap {flex: 100% 0 0;}
+	.daily-weather > .cont-wrap {flex: 100% 0 0;}
+	.weather-wrapper span.title-loc {display: block;}
 }
 
 @media screen and (max-width: 575px) {
 	.header .logo-text > div {font-size: 1.75em;}
+	.daily-weather .temp-wrap {font-size: 1.5rem;}
+	.daily-weather .desc-wrap {font-size: 1.325rem;}
+	.header-wrapper > .logo-wrap > .logo {width: 100px;} 
+	.header-wrapper .logo-text > div {font-size: 2.5em;} 
 }
