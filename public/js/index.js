@@ -142,6 +142,7 @@ function onGetWeeklyWeather(r) {
 	for(var i in r.list) {
 		v = r.list[i];
 		html 	= '<div class="slide swiper-slide">';
+		html += '<div>';
 		html += '<div class="icon">';
 		html += '<img src="https://openweathermap.org/img/wn/'+v.weather[0].icon+'@2x.png" alt="아이콘">';
 		html += '</div>';
@@ -159,16 +160,32 @@ function onGetWeeklyWeather(r) {
 		html += '</div>';
 		html += '<div class="time">'+moment(v.dt * 1000).format('M월 D일 H시 기준')+'</div>';
 		html += '</div>';
+		html += '</div>';
 		$(".weekly-weather .slide-wrapper").append(html);
 	}
+	function getCount() {
+		var wid = $(window).outerWidth();
+		var count = 3;
+		if(wid <= 1199 && wid > 991) count = 2;
+		else if(wid <= 991 && wid > 767) count = 3;
+		else if(wid <= 767 && wid > 575) count = 2;
+		else if(wid <= 575) count = 1;
+		return count;
+	}
 	var swiper = new Swiper('.swiper-container', {
-		slidesPerView: 3,
+		slidesPerView: getCount(),
+		slidesPerGroup: getCount(),
+		spaceBetween: 0,
 		freeMode: true,
 		loopFillGroupWithBlank: true,
 		navigation: {
 			nextEl: '.bt-angle.bt-next',
 			prevEl: '.bt-angle.bt-prev',
 		},
+	});
+	swiper.on("resize", function() {
+		this.params.slidesPerGroup = getCount();
+		this.params.slidesPerView = getCount();
 	});
 }
 
