@@ -42,13 +42,12 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 
 #city {margin-bottom: 1rem;}
 
-.main-wrapper .weather-wrapper {flex: calc(100% - 420px) 0 0; margin-left: 20px; background-color: rgba(0,0,0,0.4); color: #fff; padding: 2rem;}
+.main-wrapper .weather-wrapper {flex: calc(100% - 460px) 0 0; margin-left: 20px; background-color: rgba(0,0,0,0.4); color: #fff; padding: 24px 36px;}
 .weather-wrapper .title {font-size: 2em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.75rem;}
 .weather-wrapper .title small {color: #f1d4a3;}
 .weather-wrapper .title small > :last-child {font-size: 0.875em;}
 
-.cont-wrapper {padding: 1rem 0;}
-.daily-weather {display: flex; flex-wrap: wrap;}
+.daily-weather {display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.3);}
 .daily-weather > .icon-wrap {flex: 30% 0 0; display: flex; align-items: center; justify-content: center;}
 .daily-weather > .cont-wrap {flex: 70% 0 0;}
 .daily-weather .temp-wrap {font-size: 2rem; padding: 0.75rem 0;}
@@ -57,10 +56,16 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .daily-weather .desc-wrap {font-size: 1.75rem;}
 .daily-weather .press-wrap {font-size: 1.25rem; padding: 0.5rem 0;}
 .daily-weather .wind-wrap {font-size: 1.25rem; padding-bottom: 0.5rem;}
-.daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.3);}
+.daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-bottom: 0.75rem;}
 
-.weekly-container {width: 100%;}
-.weekly-container .weekly-slide {width: 33.3333%;}
+.weekly-title {font-size: 1.75em; text-align: center; margin: 0.5em 0;}
+.weather-wrapper .weekly-weather {position: relative; margin-top: 12px;}
+.weekly-weather .slide-wrapper {position: relative; display: flex;}
+.weekly-weather .slide {flex: 31.3333% 0 0; margin: 0 1%; padding: 1%; background-color: rgba(0,0,0, 0.5);}
+.weekly-weather .bt-angle {font-size: 4em; line-height: 4em; color: #fff; position: absolute; top:  calc(50% - 2em); user-select: none; cursor: pointer; transition: all 0.5s; opacity: 0.3;}
+.weekly-weather .bt-angle:hover {transform: scale(1.2); opacity: 1;}
+.weekly-weather .bt-prev {left: -0.45em;}
+.weekly-weather .bt-next {right: -0.45em;}
 
 /***************** 반응형 *******************/
 @media screen and (max-width: 991px) {
