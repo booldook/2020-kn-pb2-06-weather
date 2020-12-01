@@ -8,16 +8,24 @@ var sendData = { units: 'metric', lang: 'kr', appid: appid }
 // 1. 지도를 화면에 생성한다.
 // 2. 도시정보를 불러와서 openweathermap에 정보를 요청한다.
 // 3. 콜백된 각 도시의 날씨정보를 기존에 생성한 지도에 나타낸다.
-var container, options, map;
-container = document.getElementById('map');
-options = {
-	center: new kakao.maps.LatLng(35.82, 127.44),
-	level: 13
-};
-map = new kakao.maps.Map(container, options);
-map.setDraggable(false);
-map.setZoomable(false);
-// map.addOverlayMapTypeId(kakao.maps.MapTypeId.TERRAIN);
+var container, options, map, mapCenter;
+function mapInit() {
+	container = document.getElementById('map');
+	mapCenter = new kakao.maps.LatLng(35.82, 127.44);
+	options = {
+		center: mapCenter,
+		level: 13
+	};
+	map = new kakao.maps.Map(container, options);
+	map.setDraggable(false);
+	map.setZoomable(false);
+}
+function onResize() {
+	map.setCenter(mapCenter);
+}
+$(window).resize(onResize);
+mapInit();
+
 
 $.get('../json/city.json', onGetCity);
 function onGetCity(r) {
