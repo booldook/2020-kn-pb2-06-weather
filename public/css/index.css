@@ -59,7 +59,8 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .daily-weather .wind-wrap {font-size: 1.25rem; padding-bottom: 0.5rem;}
 .daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.3);}
 
-
+.weekly-container {width: 100%;}
+.weekly-container .weekly-slide {width: 33.3333%;}
 
 /***************** 반응형 *******************/
 @media screen and (max-width: 991px) {

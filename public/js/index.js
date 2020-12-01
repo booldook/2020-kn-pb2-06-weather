@@ -137,8 +137,12 @@ function onGetDailyWeather(r) {
 	$(".daily-weather .wind").text(windTxt);
 }
 function onGetWeeklyWeather(r) {
-	// console.log(r);
+	console.log(r);
 }
+		var mySwiper = new Swiper('.swiper-container', {
+			speed: 400,
+			spaceBetween: 100
+		});
 
 
 /*
