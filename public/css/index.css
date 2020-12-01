@@ -22,8 +22,8 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .header-wrapper .logo-text > div:first-child {color: cyan;} 
 .header-wrapper .logo-text > div:last-child {padding-left: 0.5em;} 
 
-.bt-position {padding: 8px 12px; background-color: #226922; color: #f8f8f8; transition: all 0.5s; user-select: none; cursor: pointer;}
-.bt-position:hover {background-color: seashell; color: #113811;}
+.bt-position {padding: 12px 16px; background-color: rgba(0,20,50,0.6); color: #f8f8f8; transition: all 0.5s; user-select: none; cursor: pointer;}
+.bt-position:hover {background-color: rgba(0,20,50,0.8);}
 
 /***************** .main-wrapper *******************/
 .main-wrapper .now-wrapper {display: flex; flex-wrap: wrap; margin: 2rem 0;}
