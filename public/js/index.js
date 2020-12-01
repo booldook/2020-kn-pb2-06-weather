@@ -141,7 +141,7 @@ function onGetWeeklyWeather(r) {
 	var html = '', v = null;
 	for(var i in r.list) {
 		v = r.list[i];
-		html 	= '<div class="slide">';
+		html 	= '<div class="slide swiper-slide">';
 		html += '<div class="icon">';
 		html += '<img src="https://openweathermap.org/img/wn/'+v.weather[0].icon+'@2x.png" alt="아이콘">';
 		html += '</div>';
@@ -163,8 +163,12 @@ function onGetWeeklyWeather(r) {
 	}
 	var swiper = new Swiper('.swiper-container', {
 		slidesPerView: 3,
-		spaceBetween: 30,
 		freeMode: true,
+		loopFillGroupWithBlank: true,
+		navigation: {
+			nextEl: '.bt-angle.bt-next',
+			prevEl: '.bt-angle.bt-prev',
+		},
 	});
 }
 

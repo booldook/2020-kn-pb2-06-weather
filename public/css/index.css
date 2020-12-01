@@ -59,18 +59,17 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 .daily-weather > .misc-wrap {flex: 100% 0 0; text-align: center; margin-bottom: 0.75rem;}
 
 .weekly-title {font-size: 1.75em; text-align: center; margin: 0.5em 0;}
-.weather-wrapper .weekly-weather {position: relative; margin-top: 12px;}
-.weekly-weather .weekly-slider {width: 100%; overflow-x: hidden;}
-.weekly-weather .slide-wrapper {position: relative; display: flex;}
-.weekly-weather .slide {flex: 31.3333% 0 0; margin: 0 1%; padding: 3%; background-color: rgba(0,0,0, 0.5); text-align: center;}
+.weather-wrapper .weekly-weather {width: 100%; position: relative; margin-top: 12px; }
+.weekly-weather .slide-wrapper {width: 100%; position: relative; display: flex;}
+.weekly-weather .slide {flex: 33.3333% 0 0; padding: 3%; background-color: rgba(0,0,0, 0.5); text-align: center;}
 .weekly-weather .bt-angle {font-size: 4em; line-height: 4em; color: #fff; position: absolute; top:  calc(50% - 2em); user-select: none; cursor: pointer; transition: all 0.5s; opacity: 0.3;}
 .weekly-weather .desc-wrap,
 .weekly-weather .press-wrap,
 .weekly-weather .wind-wrap {color: #aaa;}
 .weekly-weather .time {padding-top: 0.325em; border-top: 1px solid rgba(255,255,255,0.3);}
 .weekly-weather .bt-angle:hover {transform: scale(1.2); opacity: 1;}
-.weekly-weather .bt-prev {left: -0.45em;}
-.weekly-weather .bt-next {right: -0.45em;}
+.weekly-weather .bt-prev {left: 0; z-index: 9;}
+.weekly-weather .bt-next {right: 0; z-index: 9;}
 
 /***************** 반응형 *******************/
 @media screen and (max-width: 1199px) {
