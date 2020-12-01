@@ -42,7 +42,7 @@ html, body {font-size: 16px; background: url(../img/bg.jpg) no-repeat center; ba
 
 #city {margin-bottom: 1rem;}
 
-.main-wrapper .weather-wrapper {flex: calc(100% - 460px) 0 0; margin-left: 20px; background-color: rgba(0,0,0,0.4); color: #fff; padding: 24px 36px;}
+.main-wrapper .weather-wrapper {width: calc(100% - 460px); margin-left: 20px; background-color: rgba(0,0,0,0.4); color: #fff; padding: 24px 36px;}
 .weather-wrapper .title {font-size: 2em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.75rem;}
 .weather-wrapper .title small {color: #f1d4a3;}
 .weather-wrapper .title small > :last-child {font-size: 0.875em;}

@@ -93,7 +93,17 @@ function onCustomClick(id) {
 	$("#city").val(id).trigger("change");
 }
 
-
+function windGen(deg) {
+	if(deg > 345 || deg <= 15) return '북풍';
+	else if(deg > 15 || deg <= 75) return '북동풍';
+	else if(deg > 75 || deg <= 105) return '동풍';
+	else if(deg > 105 || deg <= 165) return '남동풍';
+	else if(deg > 165 || deg <= 195) return '남풍';
+	else if(deg > 195 || deg <= 255) return '남서풍';
+	else if(deg > 255 || deg <= 285) return '서풍';
+	else if(deg > 285 || deg <= 345) return '북서풍';
+	else return '';
+}
 /************** 현재날씨 콜백 **************/
 function onGetDailyWeather(r) {
 	// console.log(r);
@@ -124,20 +134,33 @@ function onGetDailyWeather(r) {
 	$(".daily-weather .sunset").text(sunset);
 	var windSpeed = r.wind.speed;
 	$(".daily-weather .wind-speed").text(windSpeed);
-	var deg = r.wind.deg;
-	var windTxt = '';
-	if(deg > 345 || deg <= 15) windTxt = '북풍';
-	if(deg > 15 || deg <= 75) windTxt = '북동풍';
-	if(deg > 75 || deg <= 105) windTxt = '동풍';
-	if(deg > 105 || deg <= 165) windTxt = '남동풍';
-	if(deg > 165 || deg <= 195) windTxt = '남풍';
-	if(deg > 195 || deg <= 255) windTxt = '남서풍';
-	if(deg > 255 || deg <= 285) windTxt = '서풍';
-	if(deg > 285 || deg <= 345) windTxt = '북서풍';
-	$(".daily-weather .wind").text(windTxt);
+	$(".daily-weather .wind").text(windGen(r.wind.deg));
 }
 function onGetWeeklyWeather(r) {
 	console.log(r);
+	var html = '', v = null;
+	for(var i in r.list) {
+		v = r.list[i];
+		html 	= '<div class="slide">';
+		html += '<div class="icon">';
+		html += '<img src="https://openweathermap.org/img/wn/'+v.weather[0].icon+'@2x.png" alt="아이콘">';
+		html += '</div>';
+		html += '<div class="temp-wrap">';
+		html += '<span class="temp">'+v.main.temp+'</span>℃ '; 
+		html += '(체감: <span class="temp-feel">'+v.main.feels_like+'</span>℃)';
+		html += '</div>';
+		html += '<div class="press-wrap">';
+		html += '기압: <span class="pressure">'+v.main.pressure+'</span>mmHg<br>';
+		html += '습도: <span class="humidity">'+v.main.humidity+'</span>%';
+		html += '</div>';
+		html += '<div class="wind-wrap">';
+		html += '바람: <span class="wind">'+windGen(v.wind.deg)+'</span>';
+		html += '- <span class="wind-speed">'+v.wind.speed+'</span>m/s';
+		html += '</div>';
+		html += '<div class="time">'+moment(v.dt * 1000).format('M월 D일 H시 기준')+'</div>';
+		html += '</div>';
+		$(".weekly-weather .slide-wrapper").append(html);
+	}
 	var swiper = new Swiper('.swiper-container', {
 		slidesPerView: 3,
 		spaceBetween: 30,
